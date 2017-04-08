@@ -7,10 +7,9 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 public class Cube implements Comparable {
-    int x, y, z;
+    private ImageIcon icon = new ImageIcon(getClass().getResource("images/cube.png"));
+    private int x, y, z;
     int CountDown;
-
-    protected ImageIcon icon = new ImageIcon(getClass().getResource("images/cube.png"));
 
     public Cube(int x, int y, int z, int countdown) {
         this.x = x;
@@ -71,7 +70,7 @@ public class Cube implements Comparable {
             for (int y = 0; y < img.getHeight(); y++) {
                 final int oldRGB = img.getRGB(x, y);
                 Color c = new Color(oldRGB, true);
-                Color cNew = new Color(Math.min(255, (int) (change / 5)), Math.min(255, c.getGreen()), Math.min(255, c.getBlue()), c.getAlpha());
+                Color cNew = new Color(Math.min(255, change / 5), Math.min(255, c.getGreen()), Math.min(255, c.getBlue()), c.getAlpha());
                 final int newRGB = cNew.getRGB();
                 img.setRGB(x, y, newRGB);
             }
