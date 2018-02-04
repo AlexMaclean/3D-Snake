@@ -2,8 +2,6 @@ package snake;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -15,9 +13,7 @@ public class Window extends JPanel implements KeyListener {
     private static final int Y_BOUND = 12;
     private static final int Z_BOUND = 12;
     public static int Rotation = 1;
-    private Timer _timer;
     private ArrayList<Cube> Cubes = new ArrayList<>();
-    private double length = 1300;
     private int randMove = 10;
     private int MaxrandMove = 10;
     private Cube up, down, forward, backward, left, right;
@@ -25,7 +21,7 @@ public class Window extends JPanel implements KeyListener {
     private Cube Direction;
     private Cube Head;
 
-    public Window() {
+    Window() {
         up = new Cube(0, 0, 1, 1);
         down = new Cube(0, 0, -1, 1);
         forward = new Cube(1, 0, 0, 1);
@@ -38,7 +34,7 @@ public class Window extends JPanel implements KeyListener {
         setDoubleBuffered(true);
         setFocusable(true);
         addKeyListener(this);
-        _timer = new Timer(5, e -> paintInterval());
+        Timer _timer = new Timer(5, e -> paintInterval());
         _timer.start();
     }
 
@@ -49,6 +45,7 @@ public class Window extends JPanel implements KeyListener {
         int newY = Direction.getY() + Head.getY();
         int newZ = Direction.getZ() + Head.getZ();
         boolean intersects = false;
+        double length = 1300;
         Cube newHead = new Cube(newX, newY, newZ, (int) length);
         for (Cube cube2 : Cubes) {
             if (newHead.equals(cube2))

@@ -11,7 +11,7 @@ public class Cube implements Comparable {
     private int x, y, z;
     int CountDown;
 
-    public Cube(int x, int y, int z, int countdown) {
+    Cube(int x, int y, int z, int countdown) {
         this.x = x;
         this.y = y;
         this.z = z;

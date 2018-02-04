@@ -1,15 +1,14 @@
 package snake;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Game extends JFrame {
 
-    private Window window = new Window();
-
     private Game() {
+        Window window = new Window();
         add(window);
         setTitle("Cube");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(800, 800);
         setLocationRelativeTo(null);
         setUndecorated(false);
